@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECHIEDOX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="DOX2.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: rgb(190, 158, 158);
+            
+        }
+
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        header .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #eec1c1;
+            margin-right: 10px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        header nav a:hover {
+            border-color: #ffd700;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #eec1c1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #2575fc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background: #6a11cb;
+        }
+
+        .section {
+            padding: 3rem 2rem;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section p {
+            text-align: center;
+        }
+
+        .services, .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .services .card, .projects .card {
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .services .card:hover, .projects .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .testimonials {
+            background: #eec1c1;
+            text-align: center;
+        }
+
+        .testimonials .testimonial {
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .contact {
+            background: #2575fc;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact input, .contact textarea, .contact button {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .contact button {
+            background: #6a11cb;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact button:hover {
+            background: #ffd700;
+        }
+
+        footer {
+            background: 190, 158, 158;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+                flex-direction: column;
+                background: #6a11cb;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+            }
+
+            header.nav-active nav {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            header nav a {
+                padding: 1rem;
+                text-align: center;
+                border: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="scrollToSection('hero')">
+            <img src="DOX2.png" alt="Logo">
+            TECHIEDOX
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+        <h1>Welcome to Our Website</h1>
+        <p>We create stunning websites and applications that help your business grow.</p>
+        <a href="#contact" class="btn">Get Started</a>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>Welcome to Techiedox! We are a team of creative web developers and designers dedicated to helping your business stand out. We specialize in building professional websites and designing logos, business cards, banners, graphics, and ads that reflect your brand perfectly.
+
+            At Techiedox, we believe in simple, effective, and eye-catching designs that make a lasting impression. Whether you're starting fresh or need a new look, we're here to bring your ideas to life and help your business grow. Let’s create something amazing together!</p>
+    </section>
+
+    <section id="services" class="section">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="card">
+                <h3>Website Development</h3>
+                <img src="VS1.png" alt="Website Development" style="width:100%; border-radius:8px;">
+                <p>Creative and responsive website designs tailored to your needs.</p>
+            </div>
+            <div class="card">
+                <h3>Logo Design</h3>
+                <img src="VS2.png" alt="Logo Design" style="width:100%; border-radius:8px;">
+                <p>Crafting iconic logos that captivate and elevate your brand's identity.</p>
+            </div>
+            <div class="card">
+                <h3>Graphic Design</h3>
+                <img src="VS3.png" alt="Graphic Design" style="width:100%; border-radius:8px;">
+                <p>Bringing ideas to life with designs that leave a lasting impression.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Our Projects</h2>
+        <div class="projects">
+            <div class="card">
+                <h3>Project 1</h3>
+                <img src="4.png" alt="Project 1" style="width:100%; border-radius:8px;">
+                <p>Details about the project.</p>
+            </div>
+            <div class="card">
+                <h3>Project 2</h3>
+                <img src="5.png" alt="Project 2" style="width:100%; border-radius:8px;">
+                <p>Details about the project.</p>
+            </div>
+            <div class="card">
+                <h3>Project 3</h3>
+                <img src="6.png" alt="Project 3" style="width:100%; border-radius:8px;">
+                <p>Details about the project.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial">
+            <p>"Amazing service and great results! Highly recommended."</p>
+            <p>-</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 TECHIEDOX. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('header').classList.toggle('nav-active');
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
