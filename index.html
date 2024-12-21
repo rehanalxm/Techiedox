@@ -242,7 +242,7 @@
     </header>
 
     <section id="hero" class="hero">
-        <h1>Welcome to Our Website</h1>
+        <h1><span id="element">Our Website</span></h1>
         <p>We create stunning websites and applications that help your business grow.</p>
         <a href="#contact" class="btn">Get Started</a>
     </section>
@@ -317,7 +317,6 @@
     <footer>
         <p>&copy; 2024 TECHIEDOX. All rights reserved.</p>
     </footer>
-
     <script>
         function toggleMenu() {
             document.querySelector('header').classList.toggle('nav-active');
@@ -326,6 +325,16 @@
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
+    </script>
+    <!-- Load library from the CDN -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- Setup and start animation! -->
+    <script>
+          var typed = new Typed('#element', {
+                strings: ['Welcome to Our Website.'],
+                typeSpeed: 30,
+          });
     </script>
 </body>
 </html>
